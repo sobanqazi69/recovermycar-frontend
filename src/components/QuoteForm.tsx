@@ -61,7 +61,7 @@ export default function QuoteForm() {
     e.preventDefault();
     setStatus("sending");
     try {
-      const res = await fetch(process.env.NEXT_PUBLIC_WORKER_URL!, {
+      const res = await fetch("https://recovermycar.uk/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),

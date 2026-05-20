@@ -104,6 +104,8 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <head>
+        <link rel="icon" href="/favicon_new.png" type="image/png" />
+        <link rel="shortcut icon" href="/favicon_new.png" type="image/png" />
         <link rel="preconnect" href="https://images.pexels.com" />
         <script
           type="application/ld+json"

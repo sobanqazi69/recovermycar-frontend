@@ -53,7 +53,7 @@ export default function Page() {
       <QuoteForm />
       <main style={{ background: "#ffffff" }}>
         <section style={{ maxWidth: 860, margin: "0 auto", padding: "40px 20px 0" }}>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#111111", marginBottom: 6, borderBottom: "3px solid #FF8A00", paddingBottom: 12, display: "inline-block" }}>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#111111", marginBottom: 6, borderBottom: "3px solid #fe8601", paddingBottom: 12, display: "inline-block" }}>
             Electric Car Recovery UK
           </h1>
           <p style={{ fontSize: 16, lineHeight: 1.8, color: "#444", marginTop: 16 }}>
@@ -64,7 +64,7 @@ export default function Page() {
           <h2 style={{ fontSize: 22, fontWeight: 700, color: "#111", marginBottom: 12 }}>EVs We Recover</h2>
           <ul style={{ listStyle: "none", padding: 0, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 12 }}>
             {["Tesla Model 3/Y/S/X", "Nissan Leaf", "BMW i3/i4/iX", "VW ID.3/ID.4", "Audi e-tron/Q4", "Hyundai Ioniq 5/6", "Kia EV6/EV9", "MG ZS EV", "Renault Zoe", "Polestar 2/3", "Ford Mustang Mach-E", "Vauxhall Mokka-e"].map((v) => (
-              <li key={v} style={{ background: "#fff8f0", border: "1px solid #ffe0b2", borderLeft: "4px solid #FF8A00", padding: "10px 14px", borderRadius: 4, fontSize: 14, fontWeight: 600, color: "#333" }}>{v}</li>
+              <li key={v} style={{ background: "#fff8f0", border: "1px solid #ffe0b2", borderLeft: "4px solid #fe8601", padding: "10px 14px", borderRadius: 4, fontSize: 14, fontWeight: 600, color: "#333" }}>{v}</li>
             ))}
           </ul>
         </section>

@@ -15,7 +15,7 @@ export default function Header() {
         <Link href="/" style={{ textDecoration: "none", display: "inline-block" }}>
           <span style={{ fontSize: 26, fontWeight: 900, letterSpacing: "-0.5px", display: "block" }}>
             <span style={{ color: "#111111" }}>{siteConfig.logoWords[0]}</span>
-            <span style={{ color: "#FF8A00" }}>{siteConfig.logoWords[1]}</span>
+            <span style={{ color: "#fe8601" }}>{siteConfig.logoWords[1]}</span>
             <span style={{ color: "#111111" }}>{siteConfig.logoWords[2]}</span>
           </span>
           <Image

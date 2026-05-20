@@ -34,7 +34,7 @@ export default function Page() {
       <QuoteForm />
       <main style={{ background: "#ffffff" }}>
         <section style={{ maxWidth: 860, margin: "0 auto", padding: "40px 20px 0" }}>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#111111", marginBottom: 6, borderBottom: "3px solid #FF8A00", paddingBottom: 12, display: "inline-block" }}>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#111111", marginBottom: 6, borderBottom: "3px solid #fe8601", paddingBottom: 12, display: "inline-block" }}>
             About {siteConfig.name}
           </h1>
           <p style={{ fontSize: 16, lineHeight: 1.8, color: "#444", marginTop: 16 }}>
@@ -47,7 +47,7 @@ export default function Page() {
             <ul style={{ listStyle: "none", padding: 0, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 20 }}>
               {stats.map(({ value, label }) => (
                 <li key={label} style={{ textAlign: "center" }}>
-                  <div style={{ fontSize: 36, fontWeight: 900, color: "#FF8A00" }}>{value}</div>
+                  <div style={{ fontSize: 36, fontWeight: 900, color: "#fe8601" }}>{value}</div>
                   <div style={{ fontSize: 14, color: "#555", marginTop: 4, fontWeight: 600 }}>{label}</div>
                 </li>
               ))}

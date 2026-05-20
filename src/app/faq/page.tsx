@@ -56,7 +56,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <main style={{ background: "#ffffff" }}>
         <section style={{ maxWidth: 860, margin: "0 auto", padding: "40px 20px 60px" }}>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#111111", marginBottom: 6, borderBottom: "3px solid #FF8A00", paddingBottom: 12, display: "inline-block" }}>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#111111", marginBottom: 6, borderBottom: "3px solid #fe8601", paddingBottom: 12, display: "inline-block" }}>
             Frequently Asked Questions
           </h1>
           <p style={{ fontSize: 16, lineHeight: 1.8, color: "#444", marginTop: 16, marginBottom: 40 }}>

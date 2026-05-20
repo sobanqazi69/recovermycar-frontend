@@ -15,7 +15,7 @@ export default function Page() {
       <Header />
       <main style={{ background: "#ffffff" }}>
         <section style={{ maxWidth: 860, margin: "0 auto", padding: "40px 20px 60px", fontSize: 15, lineHeight: 1.8, color: "#444" }}>
-          <h1 style={{ fontSize: 30, fontWeight: 800, color: "#111", marginBottom: 6, borderBottom: "3px solid #FF8A00", paddingBottom: 12, display: "inline-block" }}>Terms of Service</h1>
+          <h1 style={{ fontSize: 30, fontWeight: 800, color: "#111", marginBottom: 6, borderBottom: "3px solid #fe8601", paddingBottom: 12, display: "inline-block" }}>Terms of Service</h1>
           <p style={{ marginTop: 16, color: "#666" }}>Last updated: May 2025</p>
 
           <h2 style={{ fontSize: 20, fontWeight: 700, color: "#111", marginTop: 32, marginBottom: 8 }}>1. Service Description</h2>
@@ -49,7 +49,7 @@ export default function Page() {
           <p>These terms are governed by the laws of England and Wales. Any disputes shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
 
           <h2 style={{ fontSize: 20, fontWeight: 700, color: "#111", marginTop: 32, marginBottom: 8 }}>9. Contact</h2>
-          <p>Questions about these terms? Contact us at <a href={`tel:${siteConfig.phone}`} style={{ color: "#FF8A00" }}>{siteConfig.phoneDisplay}</a> or via the quote form on our homepage.</p>
+          <p>Questions about these terms? Contact us at <a href={`tel:${siteConfig.phone}`} style={{ color: "#fe8601" }}>{siteConfig.phoneDisplay}</a> or via the quote form on our homepage.</p>
         </section>
       </main>
     </>

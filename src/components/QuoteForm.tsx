@@ -96,7 +96,7 @@ export default function QuoteForm() {
       <div
         style={{
           background: "#3a3a3a",
-          border: "2px solid #FF8A00",
+          border: "2px solid #fe8601",
           borderRadius: 8,
           padding: "22px 20px 26px",
           width: 400,
@@ -209,7 +209,7 @@ export default function QuoteForm() {
                   textTransform: "uppercase",
                   transition: "background 0.2s",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = "#FF8A00")}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "#fe8601")}
                 onMouseLeave={(e) => (e.currentTarget.style.background = "#f0f0f0")}
               >
                 Get My Quote!

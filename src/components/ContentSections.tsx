@@ -43,7 +43,7 @@ export default function ContentSections() {
                   color: "#111111",
                   marginBottom: 14,
                   paddingBottom: 10,
-                  borderBottom: "3px solid #FF8A00",
+                  borderBottom: "3px solid #fe8601",
                   display: "inline-block",
                 }}
               >

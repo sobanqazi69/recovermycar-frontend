@@ -122,7 +122,7 @@ export default async function Page({
         <QuoteForm />
         <main style={{ background: "#ffffff" }}>
           <section style={{ maxWidth: 860, margin: "0 auto", padding: "40px 20px 0" }}>
-            <h1 style={{ fontSize: 32, fontWeight: 800, color: "#111111", marginBottom: 6, borderBottom: "3px solid #FF8A00", paddingBottom: 12, display: "inline-block" }}>
+            <h1 style={{ fontSize: 32, fontWeight: 800, color: "#111111", marginBottom: 6, borderBottom: "3px solid #fe8601", paddingBottom: 12, display: "inline-block" }}>
               {siteConfig.name} in {city.name}
             </h1>
             <p style={{ fontSize: 16, lineHeight: 1.8, color: "#444", marginTop: 16 }}>{city.intro}</p>
@@ -146,7 +146,7 @@ export default async function Page({
             <h2 style={{ fontSize: 22, fontWeight: 700, color: "#111", marginBottom: 16 }}>Car Recovery Services in {city.name}</h2>
             <ul style={{ listStyle: "none", padding: 0, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 12 }}>
               {["Breakdown Assistance", "Accident Recovery", "A to B Transportation", "Jump Start Service", "Tyre Change Assistance", "Mobile EV Charging", "Motorway Recovery", "Auction & Dealership Collection"].map((service) => (
-                <li key={service} style={{ background: "#fff8f0", border: "1px solid #ffe0b2", borderLeft: "4px solid #FF8A00", padding: "10px 14px", borderRadius: 4, fontSize: 14, fontWeight: 600, color: "#333" }}>{service}</li>
+                <li key={service} style={{ background: "#fff8f0", border: "1px solid #ffe0b2", borderLeft: "4px solid #fe8601", padding: "10px 14px", borderRadius: 4, fontSize: 14, fontWeight: 600, color: "#333" }}>{service}</li>
               ))}
             </ul>
           </section>
@@ -191,7 +191,7 @@ export default async function Page({
         <QuoteForm />
         <main style={{ background: "#ffffff" }}>
           <section style={{ maxWidth: 860, margin: "0 auto", padding: "40px 20px 0" }}>
-            <h1 style={{ fontSize: 32, fontWeight: 800, color: "#111111", marginBottom: 6, borderBottom: "3px solid #FF8A00", paddingBottom: 12, display: "inline-block" }}>
+            <h1 style={{ fontSize: 32, fontWeight: 800, color: "#111111", marginBottom: 6, borderBottom: "3px solid #fe8601", paddingBottom: 12, display: "inline-block" }}>
               Car Recovery {region.name}
             </h1>
             <p style={{ fontSize: 16, lineHeight: 1.8, color: "#444", marginTop: 16 }}>{region.intro}</p>
@@ -205,7 +205,7 @@ export default async function Page({
                 <li key={c.slug}>
                   <Link
                     href={`/car-recovery/${c.slug}`}
-                    style={{ display: "block", background: "#fff8f0", border: "1px solid #ffe0b2", borderLeft: "4px solid #FF8A00", padding: "12px 16px", borderRadius: 4, fontSize: 15, fontWeight: 600, color: "#111", textDecoration: "none" }}
+                    style={{ display: "block", background: "#fff8f0", border: "1px solid #ffe0b2", borderLeft: "4px solid #fe8601", padding: "12px 16px", borderRadius: 4, fontSize: 15, fontWeight: 600, color: "#111", textDecoration: "none" }}
                   >
                     Car Recovery {c.name}
                     <span style={{ display: "block", fontSize: 12, fontWeight: 400, color: "#666", marginTop: 2 }}>{c.region}</span>

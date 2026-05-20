@@ -53,7 +53,7 @@ export default function Page() {
       <QuoteForm />
       <main style={{ background: "#ffffff" }}>
         <section style={{ maxWidth: 860, margin: "0 auto", padding: "40px 20px 0" }}>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#111111", marginBottom: 6, borderBottom: "3px solid #FF8A00", paddingBottom: 12, display: "inline-block" }}>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#111111", marginBottom: 6, borderBottom: "3px solid #fe8601", paddingBottom: 12, display: "inline-block" }}>
             Breakdown Recovery UK
           </h1>
           <p style={{ fontSize: 16, lineHeight: 1.8, color: "#444", marginTop: 16 }}>
@@ -64,7 +64,7 @@ export default function Page() {
           <h2 style={{ fontSize: 22, fontWeight: 700, color: "#111", marginBottom: 12 }}>Common Breakdown Causes We Cover</h2>
           <ul style={{ listStyle: "none", padding: 0, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 12 }}>
             {["Flat or Dead Battery", "Flat Tyre", "Engine Failure", "Overheating", "Wrong Fuel / Misfuel", "Electrical Fault", "Clutch Failure", "Gearbox Problem", "Fuel Pump Failure", "Starter Motor Fault"].map((c) => (
-              <li key={c} style={{ background: "#fff8f0", border: "1px solid #ffe0b2", borderLeft: "4px solid #FF8A00", padding: "10px 14px", borderRadius: 4, fontSize: 14, fontWeight: 600, color: "#333" }}>{c}</li>
+              <li key={c} style={{ background: "#fff8f0", border: "1px solid #ffe0b2", borderLeft: "4px solid #fe8601", padding: "10px 14px", borderRadius: 4, fontSize: 14, fontWeight: 600, color: "#333" }}>{c}</li>
             ))}
           </ul>
         </section>

@@ -53,7 +53,7 @@ export default function Page() {
       <QuoteForm />
       <main style={{ background: "#ffffff" }}>
         <section style={{ maxWidth: 860, margin: "0 auto", padding: "40px 20px 0" }}>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#111111", marginBottom: 6, borderBottom: "3px solid #FF8A00", paddingBottom: 12, display: "inline-block" }}>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#111111", marginBottom: 6, borderBottom: "3px solid #fe8601", paddingBottom: 12, display: "inline-block" }}>
             Motorway Car Recovery UK
           </h1>
           <p style={{ fontSize: 16, lineHeight: 1.8, color: "#444", marginTop: 16 }}>
@@ -64,7 +64,7 @@ export default function Page() {
           <h2 style={{ fontSize: 22, fontWeight: 700, color: "#111", marginBottom: 12 }}>Motorways We Cover</h2>
           <ul style={{ listStyle: "none", padding: 0, display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))", gap: 10 }}>
             {["M1","M2","M3","M4","M5","M6","M6 Toll","M8","M9","M11","M18","M20","M23","M25","M27","M40","M42","M56","M60","M62","M74","M77","M90","A1(M)","A3(M)","A74(M)"].map((m) => (
-              <li key={m} style={{ background: "#fff8f0", border: "1px solid #ffe0b2", borderLeft: "4px solid #FF8A00", padding: "8px 12px", borderRadius: 4, fontSize: 14, fontWeight: 700, color: "#333" }}>{m}</li>
+              <li key={m} style={{ background: "#fff8f0", border: "1px solid #ffe0b2", borderLeft: "4px solid #fe8601", padding: "8px 12px", borderRadius: 4, fontSize: 14, fontWeight: 700, color: "#333" }}>{m}</li>
             ))}
           </ul>
         </section>

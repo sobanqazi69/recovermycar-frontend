@@ -42,7 +42,7 @@ export default function CarRecoveryHubPage() {
 
       <main style={{ background: "#ffffff" }}>
         <section style={{ maxWidth: 860, margin: "0 auto", padding: "40px 20px 0" }}>
-          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#111111", marginBottom: 6, borderBottom: "3px solid #FF8A00", paddingBottom: 12, display: "inline-block" }}>
+          <h1 style={{ fontSize: 32, fontWeight: 800, color: "#111111", marginBottom: 6, borderBottom: "3px solid #fe8601", paddingBottom: 12, display: "inline-block" }}>
             Car Recovery UK — Find Recovery Near You
           </h1>
           <p style={{ fontSize: 16, lineHeight: 1.8, color: "#444", marginTop: 16 }}>
@@ -63,7 +63,7 @@ export default function CarRecoveryHubPage() {
                     display: "block",
                     background: "#fff8f0",
                     border: "1px solid #ffe0b2",
-                    borderLeft: "4px solid #FF8A00",
+                    borderLeft: "4px solid #fe8601",
                     padding: "12px 16px",
                     borderRadius: 4,
                     fontSize: 15,

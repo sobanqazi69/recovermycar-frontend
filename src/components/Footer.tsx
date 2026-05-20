@@ -15,7 +15,7 @@ export default function Footer() {
     <footer style={{ background: "#1a1a1a", color: "#cccccc", padding: "30px 20px 20px" }}>
       <style>{`
         .footer-link { color: #cccccc; text-decoration: none; font-size: 13px; transition: color 0.15s; }
-        .footer-link:hover { color: #FF8A00; }
+        .footer-link:hover { color: #fe8601; }
       `}</style>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <nav

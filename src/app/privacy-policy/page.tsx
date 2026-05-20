@@ -15,7 +15,7 @@ export default function Page() {
       <Header />
       <main style={{ background: "#ffffff" }}>
         <section style={{ maxWidth: 860, margin: "0 auto", padding: "40px 20px 60px", fontSize: 15, lineHeight: 1.8, color: "#444" }}>
-          <h1 style={{ fontSize: 30, fontWeight: 800, color: "#111", marginBottom: 6, borderBottom: "3px solid #FF8A00", paddingBottom: 12, display: "inline-block" }}>Privacy Policy</h1>
+          <h1 style={{ fontSize: 30, fontWeight: 800, color: "#111", marginBottom: 6, borderBottom: "3px solid #fe8601", paddingBottom: 12, display: "inline-block" }}>Privacy Policy</h1>
           <p style={{ marginTop: 16, color: "#666" }}>Last updated: May 2025</p>
 
           <h2 style={{ fontSize: 20, fontWeight: 700, color: "#111", marginTop: 32, marginBottom: 8 }}>1. Who We Are</h2>
@@ -68,7 +68,7 @@ export default function Page() {
           <p>We may update this policy from time to time. The date at the top of this page shows when it was last revised. Continued use of our service after changes constitutes acceptance of the updated policy.</p>
 
           <h2 style={{ fontSize: 20, fontWeight: 700, color: "#111", marginTop: 32, marginBottom: 8 }}>10. Contact Us</h2>
-          <p>For any privacy-related enquiries, contact us at: <a href={`tel:${siteConfig.phone}`} style={{ color: "#FF8A00" }}>{siteConfig.phoneDisplay}</a> or via the quote form on our homepage.</p>
+          <p>For any privacy-related enquiries, contact us at: <a href={`tel:${siteConfig.phone}`} style={{ color: "#fe8601" }}>{siteConfig.phoneDisplay}</a> or via the quote form on our homepage.</p>
         </section>
       </main>
     </>

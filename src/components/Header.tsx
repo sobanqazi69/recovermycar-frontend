@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { siteConfig } from "@/lib/siteConfig";
 
 export default function Header() {
@@ -18,13 +17,6 @@ export default function Header() {
             <span style={{ color: "#fe8601" }}>{siteConfig.logoWords[1]}</span>
             <span style={{ color: "#111111" }}>{siteConfig.logoWords[2]}</span>
           </span>
-          <Image
-            src="/favicon_new.png"
-            alt="DRS Logo"
-            width={90}
-            height={90}
-            style={{ marginTop: 4, objectFit: "contain", objectPosition: "left" }}
-          />
         </Link>
       </div>
     </header>

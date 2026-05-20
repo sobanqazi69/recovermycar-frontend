@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { siteConfig } from "@/lib/siteConfig";
 
 const recoveryTypes = [
   "Breakdown (Assistance now)",
@@ -64,7 +65,7 @@ export default function QuoteForm() {
       const res = await fetch("https://recovermycar.uk/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, site: siteConfig.name }),
       });
       setStatus(res.ok ? "success" : "error");
     } catch {

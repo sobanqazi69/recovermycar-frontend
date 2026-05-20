@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/lib/siteConfig";
 
 export default function Header() {
@@ -11,12 +12,19 @@ export default function Header() {
           padding: "14px 20px",
         }}
       >
-        <Link href="/" style={{ textDecoration: "none" }}>
-          <span style={{ fontSize: 26, fontWeight: 900, letterSpacing: "-0.5px" }}>
+        <Link href="/" style={{ textDecoration: "none", display: "inline-block" }}>
+          <span style={{ fontSize: 26, fontWeight: 900, letterSpacing: "-0.5px", display: "block" }}>
             <span style={{ color: "#111111" }}>{siteConfig.logoWords[0]}</span>
             <span style={{ color: "#FF8A00" }}>{siteConfig.logoWords[1]}</span>
             <span style={{ color: "#111111" }}>{siteConfig.logoWords[2]}</span>
           </span>
+          <Image
+            src="/DRS _logo.png"
+            alt="DRS Logo"
+            width={120}
+            height={36}
+            style={{ marginTop: 4, objectFit: "contain", objectPosition: "left" }}
+          />
         </Link>
       </div>
     </header>

@@ -33,6 +33,20 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
 
+      # ── Find where recoverycar.uk is actually served from ─────────────────
+      - name: Locate recoverycar.uk document root
+        run: |
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
+            ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOST }} \
+            "echo '=== /home/recoverycar full structure ===' && \
+             find /home/recoverycar -maxdepth 5 -type d 2>/dev/null && \
+             echo '' && \
+             echo '=== Hello World file location ===' && \
+             find /home/recoverycar -name 'index.html' 2>/dev/null && \
+             echo '' && \
+             echo '=== nginx root for recoverycar ===' && \
+             grep -rn 'root\|server_name' /etc/nginx/ 2>/dev/null | grep -i 'recoverym\|recoverycar' || true"
+
       # ── Deploy to recoverycar.uk ───────────────────────────────────────────
       - name: Deploy to recoverycar.uk
         run: |

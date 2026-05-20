@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   const cityPages = cities.map((city) => ({
-    url: `${base}/car-recovery-${city.slug}`,
+    url: `${base}/car-recovery/${city.slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.8,

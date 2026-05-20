@@ -8,6 +8,10 @@ type SiteConfig = {
   keywords: string[];
   ogTitle: string;
   ogDescription: string;
+  hour24Title: string;
+  hour24Desc: string;
+  cheapNearMeTitle: string;
+  cheapNearMeDesc: string;
   cityTitleFn: (city: string) => string;
   cityDescFn: (city: string, region: string) => string;
 };
@@ -34,6 +38,12 @@ export const siteConfig: SiteConfig = isCheap
       ogTitle: "Cheap Car Recovery UK | 24/7 Breakdown Service",
       ogDescription:
         "Nationwide cheap car recovery. Get instant fixed-price quotes online.",
+      hour24Title: "24 Hour Cheap Car Recovery UK | 24/7 Breakdown Service",
+      hour24Desc:
+        "Need 24 hour car recovery? We provide cheap 24/7 breakdown recovery across the UK. Instant quotes, fixed prices, fast response — day or night.",
+      cheapNearMeTitle: "Cheap Car Recovery Near Me | Instant UK Quotes",
+      cheapNearMeDesc:
+        "Find cheap car recovery near you anywhere in the UK. Instant fixed-price quotes online. 24/7 nationwide coverage. Get a quote in seconds.",
       cityTitleFn: (city) =>
         `Cheap Car Recovery ${city} | 24/7 Breakdown Service`,
       cityDescFn: (city, region) =>
@@ -58,6 +68,12 @@ export const siteConfig: SiteConfig = isCheap
       ogTitle: "Recover My Car | UK Car Recovery Service",
       ogDescription:
         "Nationwide car recovery service. Get instant quotes and recover your car fast.",
+      hour24Title: "24 Hour Car Recovery UK | Recover My Car Anytime",
+      hour24Desc:
+        "Need car recovery at any hour? Recover My Car operates 24/7 across the UK. Instant quotes, professional service, fast response — day or night.",
+      cheapNearMeTitle: "Car Recovery Near Me | Find Local Recovery UK",
+      cheapNearMeDesc:
+        "Looking for car recovery near you? Recover My Car covers the whole UK. Find local recovery agents with instant online quotes and fixed pricing.",
       cityTitleFn: (city) =>
         `Car Recovery ${city} | Recover My Car`,
       cityDescFn: (city, region) =>

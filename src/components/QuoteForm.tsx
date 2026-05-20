@@ -63,6 +63,8 @@ export default function QuoteForm() {
 
   return (
     <section
+      role="img"
+      aria-label="Tow truck recovering a broken down car on a UK road"
       style={{
         minHeight: 680,
         backgroundImage:

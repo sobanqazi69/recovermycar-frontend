@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: base, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
     { url: `${base}/24-hour-car-recovery`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/cheap-car-recovery-near-me`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/car-recovery`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
     ...cityPages,
   ];
 }

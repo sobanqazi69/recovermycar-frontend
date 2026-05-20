@@ -46,7 +46,7 @@ export default async function CityPage({
   const city = getCityBySlug(slug);
   if (!city) notFound();
 
-  const jsonLd = {
+  const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
     name: siteConfig.cityTitleFn(city.name),
@@ -64,14 +64,48 @@ export default async function CityPage({
     },
   };
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: city.faq1Q,
+        acceptedAnswer: { "@type": "Answer", text: city.faq1A },
+      },
+      {
+        "@type": "Question",
+        name: city.faq2Q,
+        acceptedAnswer: { "@type": "Answer", text: city.faq2A },
+      },
+      {
+        "@type": "Question",
+        name: `How do I get a car recovery quote in ${city.name}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Use the instant quote form at the top of this page. Enter your collection address in ${city.name}, your destination, recovery type, vehicle registration, and phone number. Your fixed price is sent by free SMS.`,
+        },
+      },
+    ],
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      { "@type": "ListItem", position: 2, name: "Car Recovery", item: `${siteConfig.url}/car-recovery` },
+      { "@type": "ListItem", position: 3, name: `Car Recovery ${city.name}`, item: `${siteConfig.url}/car-recovery/${city.slug}` },
+    ],
+  };
+
   return (
     <>
       <Header />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       <QuoteForm />
 

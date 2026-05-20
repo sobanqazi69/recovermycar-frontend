@@ -21,6 +21,11 @@ export const metadata: Metadata = {
     locale: "en_GB",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.ogTitle,
+    description: siteConfig.ogDescription,
+  },
   robots: {
     index: true,
     follow: true,
@@ -65,6 +70,7 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <head>
+        <link rel="preconnect" href="https://images.pexels.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

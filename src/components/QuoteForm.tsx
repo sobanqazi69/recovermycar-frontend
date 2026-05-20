@@ -11,51 +11,48 @@ const recoveryTypes = [
   "Auction Collection",
 ];
 
-const LocationIcon = () => (
-  <svg
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
-    fill="none"
-    style={{ flexShrink: 0, color: "#FF8A00" }}
-  >
-    <path
-      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-      fill="currentColor"
-    />
+const PinIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="#444" style={{ flexShrink: 0 }}>
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
   </svg>
 );
 
-const inputStyle: React.CSSProperties = {
-  width: "100%",
-  padding: "10px 12px",
-  border: "1px solid #ddd",
-  borderRadius: 4,
-  fontSize: 14,
-  outline: "none",
-  background: "#fff",
-  color: "#111",
-};
+const Required = () => (
+  <span style={{ color: "#e53e3e", fontWeight: 700, marginLeft: 3 }}>*</span>
+);
 
 const labelStyle: React.CSSProperties = {
-  fontSize: 13,
-  fontWeight: 600,
+  fontSize: 15,
+  fontWeight: 700,
+  color: "#ffffff",
+  marginBottom: 7,
+  display: "flex",
+  alignItems: "center",
+};
+
+const inputStyle: React.CSSProperties = {
+  width: "100%",
+  padding: "12px 14px",
+  border: "none",
+  borderRadius: 6,
+  fontSize: 14,
+  outline: "none",
+  background: "#ffffff",
   color: "#333",
-  marginBottom: 4,
-  display: "block",
 };
 
 export default function QuoteForm() {
   const [form, setForm] = useState({
-    recoveryType: "",
+    recoveryType: "Breakdown (Assistance now)",
     collectionAddress: "",
     deliveryAddress: "",
     telephone: "",
     vehicleReg: "",
-    collectionDate: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -67,177 +64,158 @@ export default function QuoteForm() {
   return (
     <section
       style={{
-        background: "#1a1a1a",
-        padding: "40px 20px",
+        minHeight: 680,
+        backgroundImage:
+          "url('https://images.pexels.com/photos/8931963/pexels-photo-8931963.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        padding: "40px 48px 52px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
       }}
     >
-      <div style={{ maxWidth: 700, margin: "0 auto" }}>
-        {/* Form header */}
-        <div
-          style={{
-            background: "#FF8A00",
-            borderRadius: "6px 6px 0 0",
-            padding: "14px 20px",
-          }}
-        >
-          <h2
-            style={{
-              color: "#ffffff",
-              fontSize: 20,
-              fontWeight: 700,
-              margin: 0,
-              letterSpacing: 0.3,
-            }}
-          >
-            New Instant Quote
-          </h2>
-        </div>
+      {/* Heading above the card */}
+      <h2
+        style={{
+          fontSize: 26,
+          fontWeight: 700,
+          color: "#111111",
+          marginBottom: 20,
+          background: "rgba(255,255,255,0.75)",
+          padding: "4px 10px",
+          borderRadius: 4,
+        }}
+      >
+        New Instant Quote
+      </h2>
 
-        {/* Form body */}
-        <div
-          style={{
-            background: "#ffffff",
-            borderRadius: "0 0 6px 6px",
-            padding: "24px 24px 28px",
-            boxShadow: "0 4px 16px rgba(0,0,0,0.3)",
-          }}
-        >
-          <form onSubmit={handleSubmit}>
-            <div style={{ display: "grid", gap: 16 }}>
-              {/* Recovery Type */}
-              <div>
-                <label style={labelStyle}>Recovery Type</label>
-                <select
-                  name="recoveryType"
-                  value={form.recoveryType}
-                  onChange={handleChange}
-                  style={inputStyle}
-                  required
-                >
-                  <option value="">Select recovery type...</option>
-                  {recoveryTypes.map((t) => (
-                    <option key={t} value={t}>
-                      {t}
-                    </option>
-                  ))}
-                </select>
-              </div>
+      {/* Dark card with orange border */}
+      <div
+        style={{
+          background: "#3a3a3a",
+          border: "2px solid #FF8A00",
+          borderRadius: 8,
+          padding: "22px 20px 26px",
+          width: 400,
+          maxWidth: "100%",
+        }}
+      >
+        <form onSubmit={handleSubmit}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
 
-              {/* Collection Address */}
-              <div>
-                <label style={labelStyle}>Collection Address</label>
-                <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
-                  <input
-                    type="text"
-                    name="collectionAddress"
-                    value={form.collectionAddress}
-                    onChange={handleChange}
-                    placeholder="Enter collection address or postcode"
-                    style={{ ...inputStyle, paddingRight: 36 }}
-                    required
-                  />
-                  <span style={{ position: "absolute", right: 10 }}>
-                    <LocationIcon />
-                  </span>
-                </div>
-              </div>
+            {/* Recovery Type */}
+            <div>
+              <label style={labelStyle}>
+                Recovery Type <Required />
+              </label>
+              <select
+                name="recoveryType"
+                value={form.recoveryType}
+                onChange={handleChange}
+                style={inputStyle}
+                required
+              >
+                {recoveryTypes.map((t) => (
+                  <option key={t} value={t}>{t}</option>
+                ))}
+              </select>
+            </div>
 
-              {/* Delivery Address */}
-              <div>
-                <label style={labelStyle}>Delivery Address</label>
-                <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
-                  <input
-                    type="text"
-                    name="deliveryAddress"
-                    value={form.deliveryAddress}
-                    onChange={handleChange}
-                    placeholder="Enter delivery address or postcode"
-                    style={{ ...inputStyle, paddingRight: 36 }}
-                    required
-                  />
-                  <span style={{ position: "absolute", right: 10 }}>
-                    <LocationIcon />
-                  </span>
-                </div>
-              </div>
-
-              {/* Telephone + Vehicle Reg side by side */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                <div>
-                  <label style={labelStyle}>
-                    Telephone{" "}
-                    <span style={{ fontWeight: 400, color: "#888", fontSize: 11 }}>
-                      (Quotes sent by free SMS)
-                    </span>
-                  </label>
-                  <input
-                    type="tel"
-                    name="telephone"
-                    value={form.telephone}
-                    onChange={handleChange}
-                    placeholder="e.g. 07700 900000"
-                    style={inputStyle}
-                    required
-                  />
-                </div>
-                <div>
-                  <label style={labelStyle}>
-                    Vehicle Reg{" "}
-                    <span style={{ fontWeight: 400, color: "#888", fontSize: 11 }}>
-                      (To check weight)
-                    </span>
-                  </label>
-                  <input
-                    type="text"
-                    name="vehicleReg"
-                    value={form.vehicleReg}
-                    onChange={handleChange}
-                    placeholder="e.g. AB12 CDE"
-                    style={{ ...inputStyle, textTransform: "uppercase" }}
-                    required
-                  />
-                </div>
-              </div>
-
-              {/* Collection Date */}
-              <div>
-                <label style={labelStyle}>Collection Date</label>
+            {/* Collection Address */}
+            <div>
+              <label style={labelStyle}>
+                Collection Address <Required />
+              </label>
+              <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
+                <span style={{ position: "absolute", left: 12, display: "flex", pointerEvents: "none" }}>
+                  <PinIcon />
+                </span>
                 <input
-                  type="date"
-                  name="collectionDate"
-                  value={form.collectionDate}
+                  type="text"
+                  name="collectionAddress"
+                  value={form.collectionAddress}
                   onChange={handleChange}
-                  style={inputStyle}
+                  placeholder="Enter a location"
+                  style={{ ...inputStyle, paddingLeft: 38 }}
                   required
                 />
               </div>
-
-              {/* Submit */}
-              <div style={{ marginTop: 4 }}>
-                <button
-                  type="submit"
-                  style={{
-                    width: "100%",
-                    padding: "13px",
-                    background: "#FF8A00",
-                    color: "#ffffff",
-                    border: "none",
-                    borderRadius: 4,
-                    fontSize: 16,
-                    fontWeight: 700,
-                    cursor: "pointer",
-                    letterSpacing: 0.5,
-                    transition: "background 0.2s",
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = "#E07800")}
-                  onMouseLeave={(e) => (e.currentTarget.style.background = "#FF8A00")}
-                >
-                  Get Instant Quote
-                </button>
-              </div>
             </div>
-          </form>
-        </div>
+
+            {/* Delivery Address */}
+            <div>
+              <label style={labelStyle}>
+                Delivery Address <Required />
+              </label>
+              <input
+                type="text"
+                name="deliveryAddress"
+                value={form.deliveryAddress}
+                onChange={handleChange}
+                placeholder="Enter a location"
+                style={inputStyle}
+                required
+              />
+            </div>
+
+            {/* Telephone */}
+            <div>
+              <label style={labelStyle}>
+                Telephone (Quotes sent by free sms) <Required />
+              </label>
+              <input
+                type="tel"
+                name="telephone"
+                value={form.telephone}
+                onChange={handleChange}
+                style={{ ...inputStyle, minHeight: 48 }}
+                required
+              />
+            </div>
+
+            {/* Vehicle Reg */}
+            <div>
+              <label style={labelStyle}>
+                Vehicle Reg (To check weight) <Required />
+              </label>
+              <input
+                type="text"
+                name="vehicleReg"
+                value={form.vehicleReg}
+                onChange={handleChange}
+                style={{ ...inputStyle, textTransform: "uppercase", minHeight: 48 }}
+                required
+              />
+            </div>
+
+            {/* Submit button */}
+            <div style={{ marginTop: 10 }}>
+              <button
+                type="submit"
+                style={{
+                  width: "100%",
+                  padding: "14px",
+                  background: "#f0f0f0",
+                  color: "#222222",
+                  border: "none",
+                  borderRadius: 6,
+                  fontSize: 14,
+                  fontWeight: 700,
+                  cursor: "pointer",
+                  letterSpacing: 2,
+                  textTransform: "uppercase",
+                  transition: "background 0.2s",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "#FF8A00")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "#f0f0f0")}
+              >
+                Get My Quote!
+              </button>
+            </div>
+
+          </div>
+        </form>
       </div>
     </section>
   );

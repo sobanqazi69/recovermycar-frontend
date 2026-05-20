@@ -49,6 +49,7 @@ export default function QuoteForm() {
     telephone: "",
     vehicleReg: "",
   });
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -56,9 +57,19 @@ export default function QuoteForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Quote request submitted! You will receive your quote via SMS shortly.");
+    setStatus("sending");
+    try {
+      const res = await fetch(process.env.NEXT_PUBLIC_WORKER_URL!, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      setStatus(res.ok ? "success" : "error");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -193,27 +204,38 @@ export default function QuoteForm() {
 
             {/* Submit button */}
             <div style={{ marginTop: 10 }}>
-              <button
-                type="submit"
-                style={{
-                  width: "100%",
-                  padding: "14px",
-                  background: "#f0f0f0",
-                  color: "#222222",
-                  border: "none",
-                  borderRadius: 6,
-                  fontSize: 14,
-                  fontWeight: 700,
-                  cursor: "pointer",
-                  letterSpacing: 2,
-                  textTransform: "uppercase",
-                  transition: "background 0.2s",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = "#fe8601")}
-                onMouseLeave={(e) => (e.currentTarget.style.background = "#f0f0f0")}
-              >
-                Get My Quote!
-              </button>
+              {status === "success" ? (
+                <div style={{ background: "#22c55e", color: "#fff", padding: "14px", borderRadius: 6, fontSize: 14, fontWeight: 700, textAlign: "center" }}>
+                  Quote request sent! We will be in touch shortly.
+                </div>
+              ) : status === "error" ? (
+                <div style={{ background: "#ef4444", color: "#fff", padding: "14px", borderRadius: 6, fontSize: 14, fontWeight: 700, textAlign: "center" }}>
+                  Something went wrong. Please call us directly.
+                </div>
+              ) : (
+                <button
+                  type="submit"
+                  disabled={status === "sending"}
+                  style={{
+                    width: "100%",
+                    padding: "14px",
+                    background: status === "sending" ? "#999" : "#f0f0f0",
+                    color: "#222222",
+                    border: "none",
+                    borderRadius: 6,
+                    fontSize: 14,
+                    fontWeight: 700,
+                    cursor: status === "sending" ? "not-allowed" : "pointer",
+                    letterSpacing: 2,
+                    textTransform: "uppercase",
+                    transition: "background 0.2s",
+                  }}
+                  onMouseEnter={(e) => { if (status === "idle") e.currentTarget.style.background = "#fe8601"; }}
+                  onMouseLeave={(e) => { if (status === "idle") e.currentTarget.style.background = "#f0f0f0"; }}
+                >
+                  {status === "sending" ? "Sending..." : "Get My Quote!"}
+                </button>
+              )}
             </div>
 
           </div>

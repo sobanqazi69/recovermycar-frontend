@@ -1,0 +1,10 @@
+name = "recovery-form-handler"
+main = "index.js"
+compatibility_date = "2024-09-01"
+
+# All secrets are set via CLI — never put real values here:
+#   wrangler secret put TWILIO_ACCOUNT_SID
+#   wrangler secret put TWILIO_AUTH_TOKEN
+#   wrangler secret put TWILIO_PHONE
+#   wrangler secret put OWNER_PHONE
+#   wrangler secret put SITE_NAME

@@ -19,9 +19,9 @@ export default function Header() {
             <span style={{ color: "#111111" }}>{siteConfig.logoWords[2]}</span>
           </span>
           <Image
-            src="/DRS _logo.png"
+            src="/favicon_new.png"
             alt="DRS Logo"
-            width={300}
+            width={90}
             height={90}
             style={{ marginTop: 4, objectFit: "contain", objectPosition: "left" }}
           />

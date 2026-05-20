@@ -19,7 +19,7 @@ export default function Header() {
             <span style={{ color: "#111111" }}>{siteConfig.logoWords[2]}</span>
           </span>
           <Image
-            src="/DRS_logo.png"
+            src="recovermycar-frontend/public/DRS _logo.png"
             alt={siteConfig.name}
             width={80}
             height={80}

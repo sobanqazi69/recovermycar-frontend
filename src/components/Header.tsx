@@ -33,14 +33,15 @@ export default function Header() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 8,
+            gap: 7,
             background: "#FF8A00",
             color: "#ffffff",
-            padding: "10px 18px",
+            padding: "10px 16px",
             borderRadius: 6,
             textDecoration: "none",
             fontWeight: 700,
             fontSize: 15,
+            whiteSpace: "nowrap",
           }}
         >
           <PhoneIcon />

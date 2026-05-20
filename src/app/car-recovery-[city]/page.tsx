@@ -4,7 +4,9 @@ import { cities, getCityBySlug } from "@/lib/cities";
 import Header from "@/components/Header";
 import QuoteForm from "@/components/QuoteForm";
 
-export function generateStaticParams() {
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
   return cities.map((city) => ({ city: city.slug }));
 }
 

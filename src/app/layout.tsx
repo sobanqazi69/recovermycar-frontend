@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -33,11 +34,12 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
+const businessJsonLd = {
   "@context": "https://schema.org",
   "@type": "AutoRepair",
   name: siteConfig.name,
   url: siteConfig.url,
+  telephone: siteConfig.phone,
   description: siteConfig.defaultDescription,
   areaServed: {
     "@type": "Country",
@@ -53,6 +55,13 @@ const jsonLd = {
     closes: "23:59",
   },
   priceRange: "£",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: siteConfig.ratingValue,
+    reviewCount: siteConfig.reviewCount,
+    bestRating: "5",
+    worstRating: "1",
+  },
   knowsAbout: [
     "Car Recovery",
     "Breakdown Recovery",
@@ -61,6 +70,15 @@ const jsonLd = {
     "24 Hour Recovery",
   ],
 };
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.name,
+  url: siteConfig.url,
+};
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export default function RootLayout({
   children,
@@ -73,10 +91,30 @@ export default function RootLayout({
         <link rel="preconnect" href="https://images.pexels.com" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">{`
+              window.dataLayer=window.dataLayer||[];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js',new Date());
+              gtag('config','${GA_ID}');
+            `}</Script>
+          </>
+        )}
+      </body>
     </html>
   );
 }

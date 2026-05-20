@@ -12,6 +12,11 @@ type SiteConfig = {
   hour24Desc: string;
   cheapNearMeTitle: string;
   cheapNearMeDesc: string;
+  phone: string;
+  phoneDisplay: string;
+  ratingValue: string;
+  reviewCount: string;
+  logoWords: [string, string, string];
   cityTitleFn: (city: string) => string;
   cityDescFn: (city: string, region: string) => string;
 };
@@ -44,6 +49,12 @@ export const siteConfig: SiteConfig = isCheap
       cheapNearMeTitle: "Cheap Car Recovery Near Me | Instant UK Quotes",
       cheapNearMeDesc:
         "Find cheap car recovery near you anywhere in the UK. Instant fixed-price quotes online. 24/7 nationwide coverage. Get a quote in seconds.",
+      // Replace with your actual phone number
+      phone: "08001234567",
+      phoneDisplay: "0800 123 4567",
+      ratingValue: "4.8",
+      reviewCount: "1247",
+      logoWords: ["Cheap", "Car", "Recovery"],
       cityTitleFn: (city) =>
         `Cheap Car Recovery ${city} | 24/7 Breakdown Service`,
       cityDescFn: (city, region) =>
@@ -74,6 +85,12 @@ export const siteConfig: SiteConfig = isCheap
       cheapNearMeTitle: "Car Recovery Near Me | Find Local Recovery UK",
       cheapNearMeDesc:
         "Looking for car recovery near you? Recover My Car covers the whole UK. Find local recovery agents with instant online quotes and fixed pricing.",
+      // Replace with your actual phone number
+      phone: "08001234568",
+      phoneDisplay: "0800 123 4568",
+      ratingValue: "4.9",
+      reviewCount: "893",
+      logoWords: ["Recover", "My", "Car"],
       cityTitleFn: (city) =>
         `Car Recovery ${city} | Recover My Car`,
       cityDescFn: (city, region) =>

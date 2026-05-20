@@ -21,8 +21,8 @@ export default function Header() {
           <Image
             src="/DRS _logo.png"
             alt="DRS Logo"
-            width={200}
-            height={60}
+            width={300}
+            height={90}
             style={{ marginTop: 4, objectFit: "contain", objectPosition: "left" }}
           />
         </Link>

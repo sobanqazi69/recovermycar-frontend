@@ -19,11 +19,11 @@ export default function Header() {
             <span style={{ color: "#111111" }}>{siteConfig.logoWords[2]}</span>
           </span>
           <Image
-            src="recovermycar-frontend/public/DRS _logo.png"
+            src="/DRS _logo.png"
             alt={siteConfig.name}
-            width={80}
-            height={80}
-            style={{ marginTop: 6, objectFit: "contain" }}
+            width={220}
+            height={93}
+            style={{ marginTop: 6, objectFit: "contain", objectPosition: "left" }}
           />
         </Link>
       </div>

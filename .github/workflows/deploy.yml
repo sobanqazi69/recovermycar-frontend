@@ -33,26 +33,68 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
 
-      # ── Create remote directories ──────────────────────────────────────────
-      - name: Create remote directories
+      # ── Find actual document roots from nginx config ───────────────────────
+      - name: Find document roots (diagnostic)
         run: |
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
             ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOST }} \
-            "mkdir -p /home/recoverycar/htdocs/recoverycar.uk && \
-             mkdir -p /home/cheapcarsrecovery/htdocs/cheapcarsrecovery.co.uk"
+            "echo '=== recoverycar.uk nginx root ===' && \
+             grep -r 'root ' /etc/nginx/sites-enabled/ 2>/dev/null | grep -i 'recoverycar' || \
+             grep -r 'root ' /etc/nginx/conf.d/ 2>/dev/null | grep -i 'recoverycar' || \
+             echo 'Not found in standard paths' && \
+             echo '' && \
+             echo '=== cheapcarsrecovery.co.uk nginx root ===' && \
+             grep -r 'root ' /etc/nginx/sites-enabled/ 2>/dev/null | grep -i 'cheapcars' || \
+             grep -r 'root ' /etc/nginx/conf.d/ 2>/dev/null | grep -i 'cheapcars' || \
+             echo 'Not found in standard paths' && \
+             echo '' && \
+             echo '=== Home directory structure ===' && \
+             ls /home/ && \
+             echo '' && \
+             echo '=== recoverycar home ===' && \
+             find /home/recoverycar -maxdepth 4 -type d 2>/dev/null || echo 'No /home/recoverycar' && \
+             echo '' && \
+             echo '=== cheapcarsrecovery home ===' && \
+             find /home/cheapcarsrecovery -maxdepth 4 -type d 2>/dev/null || echo 'No /home/cheapcarsrecovery'"
 
-      # ── Deploy to recovermycar.uk ──────────────────────────────────────────
+      # ── Deploy to recoverycar.uk ───────────────────────────────────────────
       - name: Deploy to recoverycar.uk
         run: |
+          DOCROOT=$(ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
+            ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOST }} \
+            "grep -r 'root ' /etc/nginx/sites-enabled/ /etc/nginx/conf.d/ 2>/dev/null \
+             | grep -i 'recoverycar' | grep -v 'cheapcars' \
+             | awk '{print \$NF}' | tr -d ';' | head -1")
+          echo "Deploying to: $DOCROOT"
+          if [ -z "$DOCROOT" ]; then
+            echo "Could not detect docroot, check diagnostic step above"
+            exit 1
+          fi
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
+            ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOST }} \
+            "mkdir -p $DOCROOT"
           rsync -avz --delete \
             -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" \
             ./out/ \
-            ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOST }}:/home/recoverycar/htdocs/recoverycar.uk/
+            ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOST }}:$DOCROOT/
 
       # ── Deploy to cheapcarsrecovery.co.uk ─────────────────────────────────
       - name: Deploy to cheapcarsrecovery.co.uk
         run: |
+          DOCROOT=$(ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
+            ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOST }} \
+            "grep -r 'root ' /etc/nginx/sites-enabled/ /etc/nginx/conf.d/ 2>/dev/null \
+             | grep -i 'cheapcars' \
+             | awk '{print \$NF}' | tr -d ';' | head -1")
+          echo "Deploying to: $DOCROOT"
+          if [ -z "$DOCROOT" ]; then
+            echo "Could not detect docroot, check diagnostic step above"
+            exit 1
+          fi
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
+            ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOST }} \
+            "mkdir -p $DOCROOT"
           rsync -avz --delete \
             -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" \
             ./out/ \
-            ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOST }}:/home/cheapcarsrecovery/htdocs/cheapcarsrecovery.co.uk/
+            ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOST }}:$DOCROOT/

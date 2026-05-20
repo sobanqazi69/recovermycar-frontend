@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { cities, getCityBySlug } from "@/lib/cities";
+import { siteConfig } from "@/lib/siteConfig";
 import Header from "@/components/Header";
 import QuoteForm from "@/components/QuoteForm";
 
@@ -20,16 +21,16 @@ export async function generateMetadata({
   if (!city) return {};
 
   return {
-    title: `Cheap Car Recovery ${city.name} | 24/7 Breakdown Service`,
-    description: `Need cheap car recovery in ${city.name}? We cover all of ${city.name} & ${city.region} 24/7. Instant quotes, fixed prices, fast response.`,
+    title: siteConfig.cityTitleFn(city.name),
+    description: siteConfig.cityDescFn(city.name, city.region),
     alternates: {
-      canonical: `https://cheapcarsrecovery.co.uk/car-recovery/${city.slug}`,
+      canonical: `${siteConfig.url}/car-recovery/${city.slug}`,
     },
     openGraph: {
-      title: `Cheap Car Recovery ${city.name} | 24/7 Breakdown Service`,
-      description: `Affordable car recovery in ${city.name} & ${city.region}. Fixed prices, 24/7 availability, instant quotes online.`,
-      url: `https://cheapcarsrecovery.co.uk/car-recovery/${city.slug}`,
-      siteName: "Cheap Car Recovery",
+      title: siteConfig.cityTitleFn(city.name),
+      description: siteConfig.cityDescFn(city.name, city.region),
+      url: `${siteConfig.url}/car-recovery/${city.slug}`,
+      siteName: siteConfig.name,
       locale: "en_GB",
       type: "website",
     },
@@ -48,7 +49,7 @@ export default async function CityPage({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: `Cheap Car Recovery ${city.name}`,
+    name: siteConfig.cityTitleFn(city.name),
     serviceType: "Car Recovery",
     description: city.description,
     areaServed: {
@@ -58,8 +59,8 @@ export default async function CityPage({
     },
     provider: {
       "@type": "AutoRepair",
-      name: "Cheap Car Recovery",
-      url: "https://cheapcarsrecovery.co.uk",
+      name: siteConfig.name,
+      url: siteConfig.url,
     },
   };
 
@@ -87,7 +88,7 @@ export default async function CityPage({
               display: "inline-block",
             }}
           >
-            Cheap Car Recovery in {city.name}
+            {siteConfig.name} in {city.name}
           </h1>
           <p style={{ fontSize: 16, lineHeight: 1.8, color: "#444", marginTop: 16 }}>
             {city.intro}

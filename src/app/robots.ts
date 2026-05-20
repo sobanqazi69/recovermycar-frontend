@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/lib/siteConfig";
 
 export const dynamic = "force-static";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: "https://cheapcarsrecovery.co.uk/sitemap.xml",
+    sitemap: `${siteConfig.url}/sitemap.xml`,
   };
 }

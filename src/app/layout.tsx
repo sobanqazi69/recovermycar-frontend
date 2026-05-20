@@ -1,31 +1,23 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
   title: {
-    default: "Cheap Car Recovery UK | 24/7 Breakdown & Recovery Service",
-    template: "%s | Cheap Car Recovery UK",
+    default: siteConfig.defaultTitle,
+    template: siteConfig.titleTemplate,
   },
-  description:
-    "Get instant quotes for cheap car recovery anywhere in the UK. Nationwide 24/7 breakdown recovery. Fast, reliable, affordable. Get a quote now.",
-  keywords: [
-    "cheap car recovery",
-    "cheapest car recovery UK",
-    "car breakdown recovery",
-    "24 hour car recovery UK",
-    "car recovery near me",
-    "breakdown recovery service",
-  ],
-  metadataBase: new URL("https://cheapcarsrecovery.co.uk"),
+  description: siteConfig.defaultDescription,
+  keywords: siteConfig.keywords,
+  metadataBase: new URL(siteConfig.url),
   alternates: {
-    canonical: "https://cheapcarsrecovery.co.uk",
+    canonical: siteConfig.url,
   },
   openGraph: {
-    title: "Cheap Car Recovery UK | 24/7 Breakdown Service",
-    description:
-      "Nationwide cheap car recovery. Get instant fixed-price quotes online.",
-    url: "https://cheapcarsrecovery.co.uk",
-    siteName: "Cheap Car Recovery",
+    title: siteConfig.ogTitle,
+    description: siteConfig.ogDescription,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     locale: "en_GB",
     type: "website",
   },
@@ -39,10 +31,9 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "AutoRepair",
-  name: "Cheap Car Recovery",
-  url: "https://cheapcarsrecovery.co.uk",
-  description:
-    "Nationwide cheap car recovery and 24/7 breakdown service across the UK. Instant online quotes with fixed pricing.",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  description: siteConfig.defaultDescription,
   areaServed: {
     "@type": "Country",
     name: "United Kingdom",
@@ -50,7 +41,8 @@ const jsonLd = {
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: [
-      "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday",
+      "Monday", "Tuesday", "Wednesday", "Thursday",
+      "Friday", "Saturday", "Sunday",
     ],
     opens: "00:00",
     closes: "23:59",

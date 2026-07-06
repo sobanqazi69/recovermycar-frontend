@@ -342,7 +342,20 @@ export default function QuoteForm({ noBackground }: { noBackground?: boolean }) 
           site: siteConfig.name,
         }),
       });
-      setStatus(res.ok ? "success" : "error");
+      if (res.ok) {
+        // Form is embedded as an iframe in WordPress — redirect the TOP-level tab,
+        // not just the iframe, so the user lands on the real thank-you page.
+        const thankYouUrl = "https://cheapcarsrecovery.co.uk/thankyou/";
+        try {
+          // window.top navigation is allowed cross-origin off a user gesture (form submit).
+          (window.top ?? window).location.href = thankYouUrl;
+        } catch {
+          // Sandbox/cross-origin fallback: navigate within the iframe.
+          window.location.href = thankYouUrl;
+        }
+        return;
+      }
+      setStatus("error");
     } catch {
       setStatus("error");
     }

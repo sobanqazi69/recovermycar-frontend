@@ -4,18 +4,35 @@ import Header from "@/components/Header";
 import QuoteForm from "@/components/QuoteForm";
 
 export const metadata: Metadata = {
-  title: `Van Recovery UK | 24/7 Breakdown & Recovery Service | ${siteConfig.name}`,
-  description: `Van broken down? ${siteConfig.name} provides 24/7 van recovery across the UK. All van sizes covered. Instant fixed-price quotes. Nationwide coverage.`,
+  title: `Cheap Van Recovery UK | 24/7 Breakdown & Recovery Service | ${siteConfig.name}`,
+  description: `Van broken down? Get cheap van recovery 24/7 anywhere in the UK. All van sizes covered — Birmingham, London, Manchester & more. Instant fixed-price quotes, fast response.`,
+  keywords: [
+    "cheap van recovery",
+    "cheap van recovery UK",
+    "cheap van recovery near me",
+    "cheap van breakdown recovery",
+    "affordable van recovery UK",
+    "van recovery UK",
+    "van breakdown recovery",
+    "van recovery near me",
+    "cheap van recovery Birmingham",
+    "cheap van recovery London",
+    "cheap van recovery Manchester",
+    "van towing service UK",
+    "van recovery service",
+    "24 hour van recovery",
+    "cheap 24 hour van recovery",
+  ],
   alternates: { canonical: `${siteConfig.url}/van-recovery` },
   openGraph: {
-    title: `Van Recovery UK | 24/7 Breakdown Service`,
-    description: `24/7 van recovery across the UK. All sizes covered. Instant fixed-price quotes.`,
+    title: `Cheap Van Recovery UK | 24/7 Breakdown Service`,
+    description: `Cheap 24/7 van recovery across the UK. All sizes covered. Instant fixed-price quotes.`,
     url: `${siteConfig.url}/van-recovery`,
     siteName: siteConfig.name,
     locale: "en_GB",
     type: "website",
   },
-  twitter: { card: "summary_large_image", title: `Van Recovery UK | ${siteConfig.name}`, description: `24/7 van recovery. All sizes. Instant fixed-price quotes.` },
+  twitter: { card: "summary_large_image", title: `Cheap Van Recovery UK | ${siteConfig.name}`, description: `Cheap 24/7 van recovery. All sizes. Instant fixed-price quotes.` },
 };
 
 const faqItems = [

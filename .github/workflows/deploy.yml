@@ -30,23 +30,11 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
 
-      # ── Build & deploy cheapcarsrecovery.co.uk ────────────────────────────
-      - name: Build for cheapcarsrecovery.co.uk
-        run: NEXT_PUBLIC_SITE=cheapcarsrecovery npm run build
-
-      - name: Deploy to cheapcarsrecovery.co.uk
-        run: |
-          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no \
-            ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOST }} \
-            "mkdir -p /home/cheapcarsrecovery/htdocs/cheapcarsrecovery.co.uk"
-          rsync -avz --delete \
-            -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" \
-            ./out/ \
-            ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOST }}:/home/cheapcarsrecovery/htdocs/cheapcarsrecovery.co.uk/
-
       # ── Build & deploy recovermycar.uk ────────────────────────────────────
       - name: Build for recovermycar.uk
         run: NEXT_PUBLIC_SITE=recovermycar npm run build
+        env:
+          NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: ${{ secrets.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY }}
 
       - name: Deploy to recovermycar.uk
         run: |

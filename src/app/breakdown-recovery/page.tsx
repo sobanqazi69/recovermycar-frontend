@@ -4,18 +4,35 @@ import Header from "@/components/Header";
 import QuoteForm from "@/components/QuoteForm";
 
 export const metadata: Metadata = {
-  title: `Breakdown Recovery UK | 24/7 Roadside Assistance | ${siteConfig.name}`,
-  description: `Car broken down? ${siteConfig.name} provides 24/7 breakdown recovery across the UK. Fast roadside assistance, fixed prices, no call-out fees. Get an instant quote.`,
+  title: `Cheap Breakdown Recovery UK | 24/7 Roadside Assistance | ${siteConfig.name}`,
+  description: `Car broken down? Get cheap breakdown recovery anywhere in the UK. ${siteConfig.name} provides 24/7 roadside assistance — Birmingham, London, Manchester & beyond. Fixed prices, no call-out fees.`,
+  keywords: [
+    "cheap breakdown recovery",
+    "cheap breakdown recovery UK",
+    "breakdown recovery UK",
+    "breakdown recovery near me",
+    "cheap car breakdown recovery",
+    "affordable breakdown recovery",
+    "cheap breakdown recovery Birmingham",
+    "cheap breakdown recovery London",
+    "cheap breakdown recovery Manchester",
+    "24 hour breakdown recovery",
+    "roadside assistance UK",
+    "cheap roadside assistance",
+    "car breakdown near me",
+    "cheap car breakdown near me",
+    "vehicle breakdown recovery UK",
+  ],
   alternates: { canonical: `${siteConfig.url}/breakdown-recovery` },
   openGraph: {
-    title: `Breakdown Recovery UK | 24/7 Roadside Assistance`,
-    description: `24/7 breakdown recovery across the UK. Fixed prices, no call-out fees. Instant quotes.`,
+    title: `Cheap Breakdown Recovery UK | 24/7 Roadside Assistance`,
+    description: `Cheap 24/7 breakdown recovery across the UK. Fixed prices, no call-out fees. Instant quotes.`,
     url: `${siteConfig.url}/breakdown-recovery`,
     siteName: siteConfig.name,
     locale: "en_GB",
     type: "website",
   },
-  twitter: { card: "summary_large_image", title: `Breakdown Recovery UK | ${siteConfig.name}`, description: `24/7 breakdown recovery. Fixed prices. Instant SMS quotes.` },
+  twitter: { card: "summary_large_image", title: `Cheap Breakdown Recovery UK | ${siteConfig.name}`, description: `Cheap 24/7 breakdown recovery. Fixed prices. Instant SMS quotes.` },
 };
 
 const faqItems = [

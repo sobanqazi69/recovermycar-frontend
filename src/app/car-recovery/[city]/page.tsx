@@ -28,6 +28,22 @@ export async function generateMetadata({
     return {
       title: siteConfig.cityTitleFn(city.name),
       description: siteConfig.cityDescFn(city.name, city.region),
+      keywords: [
+        `cheap car recovery ${city.name}`,
+        `cheap car recovery in ${city.name}`,
+        `car recovery ${city.name}`,
+        `car recovery in ${city.name}`,
+        `breakdown recovery ${city.name}`,
+        `cheap breakdown recovery ${city.name}`,
+        `affordable car recovery ${city.name}`,
+        `car recovery near me ${city.name}`,
+        `24 hour car recovery ${city.name}`,
+        `vehicle recovery ${city.name}`,
+        `roadside recovery ${city.name}`,
+        `cheap car towing ${city.name}`,
+        `car recovery ${city.region}`,
+        `cheap car recovery ${city.region}`,
+      ],
       alternates: { canonical: `${siteConfig.url}/car-recovery/${city.slug}` },
       openGraph: {
         title: siteConfig.cityTitleFn(city.name),
@@ -48,12 +64,21 @@ export async function generateMetadata({
   const region = getRegionBySlug(slug);
   if (region) {
     return {
-      title: `Car Recovery ${region.name} | ${siteConfig.name}`,
-      description: `Find car recovery anywhere in ${region.name}. ${siteConfig.name} covers all major towns and cities in the region. 24/7 fixed-price quotes.`,
+      title: `Cheap Car Recovery ${region.name} | 24/7 Breakdown Service`,
+      description: `Find cheap car recovery anywhere in ${region.name}. ${siteConfig.name} covers all major towns and cities in the region. Instant fixed-price quotes, 24/7 service.`,
+      keywords: [
+        `cheap car recovery ${region.name}`,
+        `car recovery ${region.name}`,
+        `breakdown recovery ${region.name}`,
+        `cheap breakdown recovery ${region.name}`,
+        `affordable car recovery ${region.name}`,
+        `vehicle recovery ${region.name}`,
+        `24 hour car recovery ${region.name}`,
+      ],
       alternates: { canonical: `${siteConfig.url}/car-recovery/${region.slug}` },
       openGraph: {
-        title: `Car Recovery ${region.name} | ${siteConfig.name}`,
-        description: `24/7 car recovery across ${region.name}. Instant fixed-price quotes.`,
+        title: `Cheap Car Recovery ${region.name} | 24/7 Breakdown Service`,
+        description: `Cheap 24/7 car recovery across ${region.name}. Instant fixed-price quotes.`,
         url: `${siteConfig.url}/car-recovery/${region.slug}`,
         siteName: siteConfig.name,
         locale: "en_GB",

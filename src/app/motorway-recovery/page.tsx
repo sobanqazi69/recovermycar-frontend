@@ -4,18 +4,35 @@ import Header from "@/components/Header";
 import QuoteForm from "@/components/QuoteForm";
 
 export const metadata: Metadata = {
-  title: `Motorway Car Recovery UK | 24/7 Emergency Breakdown | ${siteConfig.name}`,
-  description: `Broken down on a UK motorway? ${siteConfig.name} provides 24/7 motorway car recovery across all UK motorways. Instant fixed-price quotes, fast response.`,
+  title: `Cheap Motorway Car Recovery UK | 24/7 Emergency Breakdown | ${siteConfig.name}`,
+  description: `Broken down on a UK motorway? Get cheap motorway car recovery 24/7 across all UK motorways — M1, M6, M25, M60 & more. Instant fixed-price quotes, fast response.`,
+  keywords: [
+    "cheap motorway recovery",
+    "cheap motorway car recovery",
+    "motorway car recovery UK",
+    "motorway breakdown recovery",
+    "cheap motorway breakdown",
+    "affordable motorway recovery",
+    "M1 car recovery",
+    "M6 car recovery",
+    "M25 car recovery",
+    "M60 car recovery",
+    "motorway breakdown UK",
+    "emergency motorway recovery",
+    "cheap emergency car recovery",
+    "motorway recovery near me",
+    "breakdown on motorway UK",
+  ],
   alternates: { canonical: `${siteConfig.url}/motorway-recovery` },
   openGraph: {
-    title: `Motorway Car Recovery UK | 24/7 Emergency Breakdown`,
-    description: `24/7 motorway recovery across all UK motorways. Instant fixed-price quotes, fast response.`,
+    title: `Cheap Motorway Car Recovery UK | 24/7 Emergency Breakdown`,
+    description: `Cheap 24/7 motorway recovery across all UK motorways. Instant fixed-price quotes, fast response.`,
     url: `${siteConfig.url}/motorway-recovery`,
     siteName: siteConfig.name,
     locale: "en_GB",
     type: "website",
   },
-  twitter: { card: "summary_large_image", title: `Motorway Car Recovery UK | ${siteConfig.name}`, description: `24/7 motorway recovery. Instant fixed-price quotes.` },
+  twitter: { card: "summary_large_image", title: `Cheap Motorway Car Recovery UK | ${siteConfig.name}`, description: `Cheap 24/7 motorway recovery. Instant fixed-price quotes.` },
 };
 
 const faqItems = [

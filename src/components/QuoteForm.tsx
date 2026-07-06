@@ -353,7 +353,7 @@ export default function QuoteForm({ noBackground }: { noBackground?: boolean }) 
       <section
         style={{
           minHeight: 680,
-          ...(noBackground ? { background: "#f5f5f5" } : {
+          ...(noBackground ? { background: "transparent" } : {
             backgroundImage: "url('https://images.pexels.com/photos/8931963/pexels-photo-8931963.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80')",
             backgroundSize: "cover",
             backgroundPosition: "center",
